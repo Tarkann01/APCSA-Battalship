@@ -1,3 +1,5 @@
+import random
+
 ocean = [
     ["O", "O", "O", "O", "O"],
     ["O", "O", "O", "O", "O"],
@@ -15,3 +17,7 @@ def startTurn():
 
 startTurn()
 
+def hideBoat():
+    x = random.randint(0,4)
+    y = random.randint(0,4)
+    ocean.insert("X", ocean[y,x])
