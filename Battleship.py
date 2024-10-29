@@ -2,6 +2,7 @@ import random
 x = 0
 y = 0
 terminate = 0
+shotCount = 0
 
 ocean = [
     ["O", "O", "O", "O", "O"],
@@ -14,6 +15,7 @@ ocean = [
 
 
 def startTurn():
+    global shotCount
     for z in range (0, 5):
         print(ocean[z])
 
@@ -31,6 +33,9 @@ def startTurn():
         terminate = 1
     else:
         print("WRONG! Try again!")
+        ocean[xGuess-1][yGuess-1] = "X"
+        shotCount +=1
+        print("Shot Count:",shotCount)
 
 
 def hideBoat():
@@ -45,6 +50,7 @@ hideBoat()
 
 while terminate == 0:
     startTurn()
+
 
 
 
