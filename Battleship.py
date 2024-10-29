@@ -12,9 +12,12 @@ ocean = [
     ["O", "O", "O", "O", "O"],
 ]
 
-
+oceanRows = 5
+oceanColumns = 5
 
 def startTurn():
+    xGuess = -1
+    yGuess = -1
     global shotCount
     for z in range (0, 5):
         print(ocean[z])
@@ -24,8 +27,14 @@ def startTurn():
     print(y)
     #TESTING PURPOSES
 
-    xGuess = int(input("Please input the x position of where you believe the ship is."))
-    yGuess = int(input("Please input the y position of where you believe the ship is."))
+    while xGuess < 0 or xGuess > oceanRows:
+        xGuess = int(input("Please input the x position of where you believe the ship is."))
+        if xGuess > oceanRows or xGuess < 0:
+            print("Guess is out of bounds, try again")
+    while yGuess < 0 or yGuess > oceanColumns:
+        yGuess = int(input("Please input the y position of where you believe the ship is."))
+        if yGuess > oceanColumns or yGuess < 0:
+            print("Guess is out of bounds, try again")
 
     if x == xGuess and y == yGuess:
         global terminate
@@ -50,7 +59,6 @@ hideBoat()
 
 while terminate == 0:
     startTurn()
-
 
 
 
