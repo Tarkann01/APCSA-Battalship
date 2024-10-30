@@ -4,16 +4,18 @@ y = 0
 terminate = 0
 shotCount = 0
 
-ocean = [
-    ["O", "O", "O", "O", "O"],
-    ["O", "O", "O", "O", "O"],
-    ["O", "O", "O", "O", "O"],
-    ["O", "O", "O", "O", "O"],
-    ["O", "O", "O", "O", "O"],
-]
+ocean = [[]]
 
-oceanRows = 5
-oceanColumns = 5
+oceanRows = 0
+oceanColumns = 0
+
+def createOcean():
+    global ocean
+    global oceanRows
+    global oceanColumns
+    oceanRows = int(input("How many rows do you want?"))
+    oceanColumns = int(input("How many columns do you want?"))
+    ocean = [["O" for _ in range(oceanColumns)] for _ in range(oceanRows)]
 
 def startTurn():
     xGuess = -1
@@ -54,7 +56,7 @@ def hideBoat():
     y = random.randint(0,4)
     #ocean.insert("X", ocean[y,x])
 
-
+createOcean()
 hideBoat()
 
 while terminate == 0:
