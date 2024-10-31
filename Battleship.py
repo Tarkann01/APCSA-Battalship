@@ -1,13 +1,15 @@
 import random
-x = 0
-y = 0
+x1 = 0
+y1 = 0
+x2 = 0
+y2 = 0
 terminate = 0
 shotCount = 0
 
 ocean = [[]]
 
 oceanRC = 0
-totalShips = 1
+totalShips = 2
 shipsHit = 0
 
 def createOcean():
@@ -28,8 +30,10 @@ def startTurn():
         print(ocean[z])
 
     #TESTING PURPOSES
-    print(x)
-    print(y)
+    print(x1)
+    print(y1)
+    print(x2)
+    print(y2)
     #TESTING PURPOSES
 
     while xGuess < 0 or xGuess > oceanRC:
@@ -41,7 +45,7 @@ def startTurn():
         if yGuess > oceanRC or yGuess < 1:
             print("Guess is out of bounds, try again")
 
-    if x == xGuess and y == yGuess:
+    if x1 == xGuess and y1 == yGuess or x2 == xGuess and y2 == yGuess:
         global terminate
         global shipsHit
         global totalShips
@@ -65,10 +69,14 @@ def startTurn():
 
 
 def hideBoat():
-    global x
-    global y
-    x = random.randint(1,oceanRC)
-    y = random.randint(1,oceanRC)
+    global x1
+    global y1
+    global x2
+    global y2
+    x1 = random.randint(1,oceanRC)
+    y1 = random.randint(1,oceanRC)
+    x2 = random.randint(1,oceanRC)
+    y2 = random.randint(1,oceanRC)
     #ocean.insert("X", ocean[y,x])
 
 createOcean()
