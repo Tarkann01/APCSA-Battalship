@@ -1,8 +1,8 @@
 import random
-x1 = 0
-y1 = 0
-x2 = 0
-y2 = 0
+x1 = -1
+y1 = -1
+x2 = -1
+y2 = -1
 terminate = 0
 shotCount = 0
 
@@ -28,13 +28,6 @@ def startTurn():
     global shotCount
     for z in range (0, oceanRC):
         print(ocean[z])
-
-    #TESTING PURPOSES
-    print(x1)
-    print(y1)
-    print(x2)
-    print(y2)
-    #TESTING PURPOSES
 
     while xGuess < 0 or xGuess > oceanRC:
         xGuess = int(input("Please input the x position of where you believe the ship is."))
@@ -77,6 +70,9 @@ def hideBoat():
     y1 = random.randint(1,oceanRC)
     x2 = random.randint(1,oceanRC)
     y2 = random.randint(1,oceanRC)
+    while x2 == x1 and y2 == y1:
+        x2 = random.randint(1,oceanRC)
+        y2 = random.randint(1,oceanRC)
     #ocean.insert("X", ocean[y,x])
 
 createOcean()
